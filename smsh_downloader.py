@@ -3,8 +3,7 @@ import aiohttp
 from bs4 import BeautifulSoup as BS
 import argparse
 import logging
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
+from datetime import datetime,timedelta
 from tqdm import tqdm
 from tqdm.contrib.logging import logging_redirect_tqdm
 import re
@@ -131,7 +130,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     
-    pre_month_date=args.month_year-relativedelta(months=1)
+    pre_month_date=args.month_year-timedelta(1)
     smsh_url=f'https://www.smashingmagazine.com/{pre_month_date.year}/{pre_month_date.month:02d}/desktop-wallpaper-calendars-{args.month_year.strftime("%B").lower()}-{args.month_year.year}/'
     resolution = args.resolution.lower()
     
