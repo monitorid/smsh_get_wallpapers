@@ -2,13 +2,13 @@
 Script for downloading wallpapers from smashingmagazine.com for a certain Month of Year
 
 ### Requirements
-Python 3.8.2
-asyncio
-aiohttp
-BeautifulSoup
-tqdm
-python-dateutil
-
+Python 3.8.2<br/>
+aiohttp<br/>
+beautifulsoup4<br/>
+tqdm<br/>
+```
+pip install -r requirements.txt
+```
 #### Options
 ```
 usage: smsh_downloader.py [-h] [-c LIMIT] MMYYYY resolution
