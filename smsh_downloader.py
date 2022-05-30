@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup as BS
 import argparse
 import logging
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
 from tqdm import tqdm
 from tqdm.contrib.logging import logging_redirect_tqdm
 import re
@@ -130,8 +131,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     
-    
-    smsh_url=f'https://www.smashingmagazine.com/{args.month_year.year}/{args.month_year.month:02d}/desktop-wallpaper-calendars-may-{args.month_year.year}/'
+    pre_month_date=args.month_year-relativedelta(months=1)
+    smsh_url=f'https://www.smashingmagazine.com/{pre_month_date.year}/{pre_month_date.month:02d}/desktop-wallpaper-calendars-{args.month_year.strftime("%B").lower()}-{args.month_year.year}/'
     resolution = args.resolution.lower()
     
     asyncio.run(main(smsh_url,resolution,c_limit=int(args.limit))) #.run instead get_event_loop() 
